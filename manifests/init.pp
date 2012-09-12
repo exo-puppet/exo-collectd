@@ -35,7 +35,7 @@
 #   
 #   Then add the following line at the end of the /etc/collectd.conf file (if it is not already the case) :
 #
-#       Include /etc/collectd.d/*.conf
+#       Include "/etc/collectd.d/*.conf"
 #
 ################################################################################
 class collectd ( $lastversion = false ) {
