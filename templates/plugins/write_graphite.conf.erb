@@ -1,0 +1,8 @@
+LoadPlugin write_graphite
+<Plugin write_graphite>
+        <Carbon>
+                Host "<%= scope.lookupvar('collectd::plugin::write_graphite::graphite_host') %>"
+                Port "<%= scope.lookupvar('collectd::plugin::write_graphite::graphite_port') %>"
+                Prefix "collectd."
+        </Carbon>
+</Plugin>
