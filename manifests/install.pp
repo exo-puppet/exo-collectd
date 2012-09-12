@@ -29,14 +29,6 @@ class collectd::install {
                         mode    => 644,
                     }
                     
-                    file { "${collectd::params::configuration_dir}/collectd.conf":
-                        ensure  => file,
-                        owner   => root,
-                        group   => root,
-                        mode    => 644,
-                        content => template ("collectd/etc/collectd/collectd.conf.erb"),
-                        require => Package ["collectd"],
-                    }
                 }
                 default: {
                     fail ("The ${module_name} puppet module is not (yet) supported on $::operatingsystem $::operatingsystemrelease")
