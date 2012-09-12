@@ -5,7 +5,7 @@ class collectd::plugin::write_graphite( $activated=true, $graphite_host, $graphi
             ensure => file,
             owner  => root,
             group  => root,
-            content => template ("collected/plugins/write_graphite.conf.erb"),
+            content => template ("collectd/plugins/write_graphite.conf.erb"),
             require => File ["${collectd::params::configuration_d_dir}"],
             notify => Class["collectd::service"],
         }
