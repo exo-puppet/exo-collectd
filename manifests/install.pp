@@ -6,7 +6,7 @@ class collectd::install {
     case $::operatingsystem {
         /(Ubuntu)/: {
             case $::lsbdistrelease {
-                /(10.04|12.04|11.10)/: {
+                /(10.04|11.04|11.10|12.04)/: {
                     repo::define { "collectd-ppa-repo":
                         file_name   => "git-core-ppa",
                         url         => "http://ppa.launchpad.net/jeff-kerzner/collectd/ubuntu",
