@@ -1,0 +1,6 @@
+LoadPlugin apache
+<Plugin apache>
+  <Instance "www">
+    URL "http://<%= scope.lookupvar('collectd::plugin::apache::apache_host') %>:<%= scope.lookupvar('collectd::plugin::apache::apache_port') %>/server-status?auto"
+  </Instance>
+</Plugin>
