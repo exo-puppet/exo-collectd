@@ -3,8 +3,8 @@
 #   This module manages the collectd service.
 #
 #   Tested platforms:
+#    - Ubuntu 12.04 
 #    - Ubuntu 11.10 Oneiric
-#    - Ubuntu 11.04 Natty
 #    - Ubuntu 10.04 Lucid
 #
 #
