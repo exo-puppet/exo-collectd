@@ -18,8 +18,8 @@ class collectd::install {
                         notify      => Exec["repo-update"],
                     } ->
                     package { "collectd" :
-                        name    => $openldap::params::package_name,
-                        ensure  => $openldap::params::ensure_mode,
+                        name    => $collectd::params::package_name,
+                        ensure  => $collectd::params::ensure_mode,
                         require => [ Exec ["repo-update"],],
                     } ->
                     file { "${collectd::params::configuration_d_dir}":
