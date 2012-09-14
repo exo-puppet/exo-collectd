@@ -18,6 +18,9 @@ class collectd::install {
                         notify      => Exec["repo-update"],
                     }
                 }
+                /(10.11|11.04)/: {
+                    /* no special repo for Collectd version 4 */
+                }
                 default: {
                     fail ("The ${module_name} puppet module is not (yet) supported on $::operatingsystem $::operatingsystemrelease")
                 }
