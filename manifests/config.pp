@@ -2,6 +2,7 @@
 #
 # This class manage the collectd configuration
 class collectd::config {
+    
     file { $collectd::params::configuration_dir:
         ensure  => directory,
         owner   => root,
@@ -15,7 +16,8 @@ class collectd::config {
         owner   => root,
         group   => root,
         mode    => 644,
-        content => template ("collectd/etc/collectd/collectd.conf.erb"),
+        content => template ("collectd/etc/collectd/collectd.conf-v${collectd::params::collectd_version}.erb"),
         require => Package ["collectd"],
+        notify  => Class["collectd::service"],
     }
 }

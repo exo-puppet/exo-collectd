@@ -6,7 +6,7 @@ class collectd::install {
     case $::operatingsystem {
         /(Ubuntu)/: {
             case $::lsbdistrelease {
-                /* for 10.10 and 11.04 I don't found PPA repo */ 
+                /* for 10.10 and 11.04 I don't found PPA repo for v 5.x of Collectd */ 
                 /(10.04|11.10|12.04)/: {
                     repo::define { "collectd-ppa-repo":
                         file_name   => "git-core-ppa",
@@ -16,23 +16,28 @@ class collectd::install {
                         key         => "E8A3AC5F",
                         key_server  => "keyserver.ubuntu.com",
                         notify      => Exec["repo-update"],
-                    } ->
-                    package { "collectd" :
-                        name    => $collectd::params::package_name,
-                        ensure  => $collectd::params::ensure_mode,
-                        require => [ Exec ["repo-update"],],
-                    } ->
-                    file { "${collectd::params::configuration_d_dir}":
-                        ensure  => directory,
-                        owner   => root,
-                        group   => root,
-                        mode    => 644,
                     }
-                    
                 }
                 default: {
                     fail ("The ${module_name} puppet module is not (yet) supported on $::operatingsystem $::operatingsystemrelease")
                 }
+            }
+            package { "collectd" :
+                name    => $collectd::params::package_name,
+                ensure  => $collectd::params::ensure_mode,
+                require => [ Exec ["repo-update"],],
+            } ->
+            file { "${collectd::params::configuration_d_dir}":
+                ensure  => directory,
+                owner   => root,
+                group   => root,
+                mode    => 644,
+            } ->
+            file { "${collectd::params::plugin_dir}":
+                ensure  => directory,
+                owner   => root,
+                group   => root,
+                mode    => 644,
             }
         }
         default: {
