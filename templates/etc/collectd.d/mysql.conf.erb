@@ -2,7 +2,7 @@ LoadPlugin mysql
 <Plugin mysql>
   <Database "localhost">
     Host "localhost"
-    Username "<%= scope.lookupvar('collectd::plugin::mysql::mysql_username') %>"
+    User "<%= scope.lookupvar('collectd::plugin::mysql::mysql_username') %>"
     Password "<%= scope.lookupvar('collectd::plugin::mysql::mysql_password') %>"
     Socket "<%= scope.lookupvar('collectd::plugin::mysql::mysql_socket') %>"
     MasterStats true
