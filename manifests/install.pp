@@ -9,7 +9,7 @@ class collectd::install {
                 /* for 10.10 and 11.04 I don't found PPA repo for v 5.x of Collectd */ 
                 /(10.04|11.10|12.04)/: {
                     repo::define { "collectd-ppa-repo":
-                        file_name   => "git-core-ppa",
+                        file_name   => "collectd-ppa-repo",
                         url         => "http://ppa.launchpad.net/jeff-kerzner/collectd/ubuntu",
                         sections    => ["main"],
                         source      => true,
