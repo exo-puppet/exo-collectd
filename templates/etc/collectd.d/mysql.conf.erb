@@ -5,6 +5,8 @@ LoadPlugin mysql
     User "<%= scope.lookupvar('collectd::plugin::mysql::mysql_username') %>"
     Password "<%= scope.lookupvar('collectd::plugin::mysql::mysql_password') %>"
     Socket "<%= scope.lookupvar('collectd::plugin::mysql::mysql_socket') %>"
-    MasterStats true
+    #MasterStats true
+    #SlaveStats true
+    #SlaveNotifications true
   </Database>
 </Plugin>
