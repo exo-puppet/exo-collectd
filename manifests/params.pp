@@ -10,8 +10,7 @@ class collectd::params {
 
   case $::operatingsystem {
     /(Ubuntu)/ : {
-      $package_name        = [
-        'collectd']
+      $package_name        = 'collectd'
       $service_name        = 'collectd'
       $configuration_dir   = '/etc/collectd'
       $configuration_d_dir = '/etc/collectd.d'

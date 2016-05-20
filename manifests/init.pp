@@ -46,6 +46,7 @@ class collectd (
     fail('lastversion must be true or false')
   }
 
-  include repo
+  include apt
+  include stdlib
   include collectd::params, collectd::install, collectd::config, collectd::service
 }
