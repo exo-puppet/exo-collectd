@@ -13,7 +13,7 @@ class collectd::install {
           } ->
           apt::ppa { 'ppa:jeff-kerzner/collectd': package_manage => true }
         }
-        /(10.11|11.04)/       : {
+        /(10.11|11.04|14.04)/       : {
           # no special repo for Collectd version 4
         }
         default               : {

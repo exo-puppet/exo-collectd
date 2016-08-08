@@ -22,7 +22,7 @@ class collectd::params {
           # Collectd version 5
           $collectd_version = 5
         }
-        /(10.11|11.04)/       : {
+        /(10.11|11.04|14.04)/       : {
           # Collectd version 4
           $collectd_version = 4
         }
